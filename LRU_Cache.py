@@ -1,19 +1,26 @@
-# Contains essential functions for implementation of a LRU Cache
+# ================================================================================================= #
+""" Description: Contains the implementation of a LRU Cache """
+# ================================================================================================= #
+__author__ = "Shrey Tiwari"
+__copyright__ = "Copyright 2021, LRU Cache"
+__license__ = "MIT"
+__version__ = "1.0.0"
+__maintainer__ = "Shrey Tiwari"
+__email__ = "shreymt@gmail.com"
+__status__ = 'Prototype'
+# ================================================================================================= #
 
 # Importing the required modules
-from LRU_DLL import LinkedList
-from LRU_DLL import accept_int
-
-# Defining total number of pages (zero based indexing)
-TOTAL_PAGES = 10
+from Linked_List.doubly_linked_list import doubly_linked_list
+from Helper.helper_functions import helper_functions
 
 
 # LRU Cache class implements the functionality of a LRU cache
 class LRUCache:
     def __init__(self, size):
         self.cache_size = size
-        self.ll = LinkedList()
-        self.hashmap = [None] * TOTAL_PAGES
+        self.ll = doubly_linked_list()
+        self.hashmap = [None] * size
         self.faults = 0
 
     def refer(self, page):
@@ -36,10 +43,8 @@ class LRUCache:
 
         return status
 
-    def total_faults(self):
-        print("The total number of cache misses as far is: ", self.faults)
-
     def display_cache(self):
+        print("The total number of cache misses as far is: ", self.faults)
         print("The present cache state is")
         self.ll.display_list()
 
@@ -48,20 +53,18 @@ class LRUCache:
 def main():
     print("------------------------------ Welcome ------------------------------")
     print("Please specify the cache size...")
-    size = accept_int()
+    size = helper_functions.accept_int()
     lru_cache = LRUCache(size)
 
     while True:
-        print("\n1. Refer Cache\n2. Total Faults\n3. Display Cache\nPress any other key to exit...")
+        print("\n1. Refer Cache\n2. Display Cache\nPress any other key to exit...")
         choice = input("Make a choice: ")
 
         if choice == '1':
             print("Specify the page to be referred...")
-            page = accept_int()
+            page = helper_functions.accept_int_range(0, size - 1)
             print("The cache reference status is:", lru_cache.refer(page))
         elif choice == '2':
-            lru_cache.total_faults()
-        elif choice == '3':
             lru_cache.display_cache()
         else:
             print("\n------------------------------ Thank You ------------------------------")

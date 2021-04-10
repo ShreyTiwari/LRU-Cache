@@ -1,4 +1,18 @@
-# Contains the Implementation of Doubly Linked List that will be used by the LRU cache.
+# ================================================================================================= #
+""" Description: Contains the implementation of Doubly Linked List """
+# ================================================================================================= #
+__author__ = "Shrey Tiwari"
+__copyright__ = "Copyright 2021, LRU Cache"
+__license__ = "MIT"
+__version__ = "1.0.0"
+__maintainer__ = "Shrey Tiwari"
+__email__ = "shreymt@gmail.com"
+__status__ = 'Prototype'
+# ================================================================================================= #
+
+# Importing the required modules
+from Helper.helper_functions import helper_functions
+
 
 # Node class acts as the blueprint for the node objects that will be a part of the doubly linked list
 class Node:
@@ -9,7 +23,7 @@ class Node:
 
 
 # Linked List class acts as the blueprint for creating the doubly linked list
-class LinkedList:
+class doubly_linked_list:
     def __init__(self):
         self.head = None
         self.tail = None
@@ -106,19 +120,10 @@ class LinkedList:
         print()
 
 
-def accept_int():
-    while True:
-        try:
-            input_data = int(input("Enter a number: "))
-            return input_data
-        except:
-            print("Invalid input. Try again...")
-
-
 # Function to manually test functionality
 def main():
     print("------------------------------ Welcome ------------------------------")
-    ll = LinkedList()
+    dll = doubly_linked_list()
 
     while True:
         print(
@@ -127,17 +132,17 @@ def main():
 
         if choice == '1':
             print("\nThe list is:")
-            ll.display_list()
+            dll.display_list()
         elif choice == '2':
-            data = accept_int()
-            _ = ll.add_node_front(data)
+            data = helper_functions.accept_int()
+            _ = dll.add_node_front(data)
         elif choice == '3':
-            data = accept_int()
-            _ = ll.add_node_back(data)
+            data = helper_functions.accept_int()
+            _ = dll.add_node_back(data)
         elif choice == '4':
-            _ = ll.remove_node_front()
+            _ = dll.remove_node_front()
         elif choice == '5':
-            _ = ll.remove_node_back()
+            _ = dll.remove_node_back()
         else:
             print("\n------------------------------ Thank You ------------------------------")
             break
