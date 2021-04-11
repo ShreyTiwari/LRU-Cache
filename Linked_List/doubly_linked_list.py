@@ -15,7 +15,7 @@ from Helper.helper_functions import helper_functions
 
 
 # Node class acts as the blueprint for the node objects that will be a part of the doubly linked list
-class Node:
+class node:
     def __init__(self, value):
         self.left = None
         self.data = value
@@ -31,7 +31,7 @@ class doubly_linked_list:
 
     # Function to add a node to the front of the list
     def add_node_front(self, value):
-        new_node = Node(value)
+        new_node = node(value)
 
         if self.count == 0:
             self.head = self.tail = new_node
@@ -46,7 +46,7 @@ class doubly_linked_list:
 
     # Function to add a node to the back of the list
     def add_node_back(self, value):
-        new_node = Node(value)
+        new_node = node(value)
 
         if self.count == 0:
             self.head = self.tail = new_node

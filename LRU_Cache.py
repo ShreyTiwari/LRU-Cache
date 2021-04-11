@@ -14,18 +14,19 @@ __status__ = 'Prototype'
 from Linked_List.doubly_linked_list import doubly_linked_list
 from Helper.helper_functions import helper_functions
 
+# Total Pages
+TOTAL_PAGES = 10
+
 
 # LRU Cache class implements the functionality of a LRU cache
-class LRUCache:
+class lru_cache:
     def __init__(self, size):
         self.cache_size = size
         self.ll = doubly_linked_list()
-        self.hashmap = [None] * size
+        self.hashmap = [None] * TOTAL_PAGES
         self.faults = 0
 
     def refer(self, page):
-        status = ""
-
         if self.hashmap[page] is not None:
             status = "Cache Hit!"
             self.ll.move_node_back(self.hashmap[page])
@@ -53,8 +54,7 @@ class LRUCache:
 def main():
     print("------------------------------ Welcome ------------------------------")
     print("Please specify the cache size...")
-    size = helper_functions.accept_int()
-    lru_cache = LRUCache(size)
+    lru_cache_test = lru_cache(helper_functions.accept_int())
 
     while True:
         print("\n1. Refer Cache\n2. Display Cache\nPress any other key to exit...")
@@ -62,10 +62,10 @@ def main():
 
         if choice == '1':
             print("Specify the page to be referred...")
-            page = helper_functions.accept_int_range(0, size - 1)
-            print("The cache reference status is:", lru_cache.refer(page))
+            page = helper_functions.accept_int_range(0, TOTAL_PAGES - 1)
+            print("The cache reference status is:", lru_cache_test.refer(page))
         elif choice == '2':
-            lru_cache.display_cache()
+            lru_cache_test.display_cache()
         else:
             print("\n------------------------------ Thank You ------------------------------")
             break
