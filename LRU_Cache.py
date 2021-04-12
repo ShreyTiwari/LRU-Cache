@@ -50,7 +50,7 @@ class lru_cache:
         self.ll.display_list()
 
 
-# Function to manually test functionality
+# Code execution begins here
 def main():
     print("------------------------------ Welcome ------------------------------")
     print("Please specify the cache size...")

@@ -121,7 +121,7 @@ class doubly_linked_list:
 
 
 # Function to manually test functionality
-def main():
+def test():
     print("------------------------------ Welcome ------------------------------")
     dll = doubly_linked_list()
 
@@ -150,4 +150,4 @@ def main():
 
 # Code execution starts here
 if __name__ == '__main__':
-    main()
+    test()

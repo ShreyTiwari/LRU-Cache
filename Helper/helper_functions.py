@@ -40,7 +40,7 @@ class helper_functions:
 
 
 # Function to manually test functionality
-def main():
+def test():
     print("------------------------------ Welcome ------------------------------")
 
     while True:
@@ -61,4 +61,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    test()
