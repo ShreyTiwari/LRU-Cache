@@ -35,8 +35,11 @@ class logger_wrapper:
 def test():
     log_wrapper = logger_wrapper()
     logger = log_wrapper.new_logger()
-    logger.info("Hello")
-    logger.debug("debug")
+    logger.debug("Hello world!")
+    logger.info("This is a test message")
+    logger.warning("Being printed from the logger wrapper class")
+    logger.error("To ensure appropriate formatting of logs")
+    logger.critical("And the correctness of code.")
 
 
 if __name__ == '__main__':
